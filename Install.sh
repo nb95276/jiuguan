@@ -40,7 +40,51 @@ show_progress() {
 # ==== 版本号 ====
 INSTALL_VERSION=20250701
 
-# ==== GitHub加速源列表（按测速排序） ====
+# ==== 动态获取最新GitHub加速源 ====
+get_latest_mirrors() {
+    echo -e "${CYAN}${BOLD}>> 🔄 正在获取最新GitHub加速源...${NC}"
+
+    # XIU2脚本地址
+    local xiu2_script_urls=(
+        "https://ghproxy.net/https://raw.githubusercontent.com/XIU2/UserScript/master/GithubEnhanced-High-Speed-Download.user.js"
+        "https://gh.ddlc.top/https://raw.githubusercontent.com/XIU2/UserScript/master/GithubEnhanced-High-Speed-Download.user.js"
+        "https://raw.githubusercontent.com/XIU2/UserScript/master/GithubEnhanced-High-Speed-Download.user.js"
+    )
+
+    for url in "${xiu2_script_urls[@]}"; do
+        if timeout 10 curl -k -fsSL --connect-timeout 5 --max-time 10 \
+            -o "/tmp/xiu2_script.js" "$url" 2>/dev/null; then
+
+            if [ -f "/tmp/xiu2_script.js" ] && [ $(stat -c%s "/tmp/xiu2_script.js" 2>/dev/null || echo 0) -gt 1000 ]; then
+                echo -e "${GREEN}${BOLD}>> ✅ 获取到最新加速源列表！${NC}"
+
+                # 解析raw_url数组，提取前10个可用源
+                local new_mirrors=()
+                while IFS= read -r line; do
+                    if [[ "$line" =~ \[\'([^\']+)\' ]]; then
+                        local mirror="${BASH_REMATCH[1]}"
+                        if [[ "$mirror" =~ ^https:// ]] && [ ${#new_mirrors[@]} -lt 10 ]; then
+                            new_mirrors+=("$mirror")
+                        fi
+                    fi
+                done < <(sed -n '/raw_url = \[/,/\];/p' "/tmp/xiu2_script.js")
+
+                if [ ${#new_mirrors[@]} -gt 5 ]; then
+                    GITHUB_MIRRORS=("${new_mirrors[@]}")
+                    echo -e "${CYAN}>> 🎉 已更新到最新的 ${#GITHUB_MIRRORS[@]} 个加速源${NC}"
+                    rm -f "/tmp/xiu2_script.js"
+                    return 0
+                fi
+            fi
+            rm -f "/tmp/xiu2_script.js"
+        fi
+    done
+
+    echo -e "${YELLOW}${BOLD}>> ⚠️ 获取最新源失败，使用内置备用源${NC}"
+    return 1
+}
+
+# ==== GitHub加速源列表（备用静态列表） ====
 GITHUB_MIRRORS=(
     "https://gitproxy.click/https://github.com"
     "https://github.tbedu.top/https://github.com"
@@ -54,6 +98,9 @@ GITHUB_MIRRORS=(
     "https://github.com"
     "https://ghproxy.net/https://github.com"
 )
+
+# 尝试获取最新加速源
+get_latest_mirrors
 
 # ==== 快速测试加速源可用性 ====
 test_mirrors_speed() {
