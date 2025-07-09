@@ -1,0 +1,142 @@
+{
+  "version": "2.6.27",
+  "last_updated": "2025-07-08 15:15:00",
+  "source_url": "https://github.com/XIU2/UserScript/raw/refs/heads/master/GithubEnhanced-High-Speed-Download.user.js",
+  "clone_url": [
+    {
+      "url": "https://gitclone.com",
+      "location": "国内",
+      "description": "[中国 国内] - 该公益加速源由 [GitClone] 提供 - 缓存：有 - 首次比较慢，缓存后较快"
+    },
+    {
+      "url": "https://kkgithub.com",
+      "location": "香港",
+      "description": "[中国香港、日本、新加坡等] - 该公益加速源由 [help.kkgithub.com] 提供"
+    },
+    {
+      "url": "https://wget.la/https://github.com",
+      "location": "香港",
+      "description": "[中国香港、中国台湾、日本、美国等]（CDN 不固定） - 该公益加速源由 [ucdn.me] 提供"
+    },
+    {
+      "url": "https://hk.gh-proxy.com/https://github.com",
+      "location": "香港",
+      "description": "[中国香港] - 该公益加速源由 [gh-proxy.com] 提供"
+    },
+    {
+      "url": "https://ghfast.top/https://github.com",
+      "location": "韩国",
+      "description": "[日本、韩国、新加坡、美国、德国等]（CDN 不固定） - 该公益加速源由 [ghproxy.link] 提供"
+    },
+    {
+      "url": "https://githubfast.com",
+      "location": "韩国",
+      "description": "[韩国] - 该公益加速源由 [Github Fast] 提供"
+    },
+    {
+      "url": "https://ghproxy.net/https://github.com",
+      "location": "日本",
+      "description": "[日本 大阪] - 该公益加速源由 [ghproxy.net] 提供"
+    }
+  ],
+  "download_url": [
+    {
+      "url": "https://ghproxy.net/https://github.com",
+      "location": "英国",
+      "description": "[英国伦敦] - 该公益加速源由 [ghproxy.net] 提供 提示：希望大家尽量多使用美国节点（每次随机 负载均衡），避免流量都集中到亚洲公益节点，减少成本压力，公益才能更持久~"
+    },
+    {
+      "url": "https://ghfast.top/https://github.com",
+      "location": "其他",
+      "description": "[日本、韩国、新加坡、美国、德国等]（CDN 不固定） - 该公益加速源由 [ghproxy.link] 提供 提示：希望大家尽量多使用美国节点（每次随机 负载均衡），避免流量都集中到亚洲公益节点，减少成本压力，公益才能更持久~"
+    },
+    {
+      "url": "https://wget.la/https://github.com",
+      "location": "其他",
+      "description": "[中国香港、中国台湾、日本、美国等]（CDN 不固定） - 该公益加速源由 [ucdn.me] 提供 提示：希望大家尽量多使用美国节点（每次随机 负载均衡），避免流量都集中到亚洲公益节点，减少成本压力，公益才能更持久~"
+    },
+    {
+      "url": "https://gh.h233.eu.org/https://github.com",
+      "location": "美国",
+      "description": "[美国 Cloudflare CDN] - 该公益加速源由 [@X.I.U/XIU2] 提供"
+    },
+    {
+      "url": "https://ghproxy.1888866.xyz/https://github.com",
+      "location": "美国",
+      "description": "[美国 Cloudflare CDN] - 该公益加速源由 [WJQSERVER-STUDIO/ghproxy] 提供"
+    },
+    {
+      "url": "https://gh.ddlc.top/https://github.com",
+      "location": "美国",
+      "description": "[美国 Cloudflare CDN] - 该公益加速源由 [@mtr-static-official] 提供"
+    },
+    {
+      "url": "https://gh-proxy.com/https://github.com",
+      "location": "美国",
+      "description": "[美国 Cloudflare CDN] - 该公益加速源由 [gh-proxy.com] 提供"
+    },
+    {
+      "url": "https://cors.isteed.cc/github.com",
+      "location": "美国",
+      "description": "[美国 Cloudflare CDN] - 该公益加速源由 [@Lufs's] 提供"
+    },
+    {
+      "url": "https://hub.gitmirror.com/https://github.com",
+      "location": "美国",
+      "description": "[美国 Cloudflare CDN] - 该公益加速源由 [GitMirror] 提供"
+    }
+  ],
+  "raw_url": [
+    {
+      "url": "https://raw.githubusercontent.com",
+      "location": "Github 原生",
+      "description": "[日本 东京] - 缓存：无（或很短）"
+    },
+    {
+      "url": "https://raw.kkgithub.com",
+      "location": "香港 1",
+      "description": "[中国香港、日本、新加坡等] - 该公益加速源由 [help.kkgithub.com] 提供 - 缓存：有"
+    },
+    {
+      "url": "https://wget.la/https://raw.githubusercontent.com",
+      "location": "香港 2",
+      "description": "[中国香港、中国台湾、日本、美国等]（CDN 不固定） - 该公益加速源由 [ucdn.me] 提供 - 缓存：无（或很短）"
+    },
+    {
+      "url": "https://hk.gh-proxy.com/https://raw.githubusercontent.com",
+      "location": "香港 3",
+      "description": "[中国香港] - 该公益加速源由 [gh-proxy.com] 提供 - 缓存：有（官方注明 2 小时）"
+    },
+    {
+      "url": "https://ghfast.top/https://raw.githubusercontent.com",
+      "location": "韩国",
+      "description": "[日本、韩国、新加坡、美国、德国等]（CDN 不固定） - 该公益加速源由 [ghproxy.link] 提供 - 缓存：无（或很短）"
+    },
+    {
+      "url": "https://gh.catmak.name/https://raw.githubusercontent.com",
+      "location": "韩国",
+      "description": "[韩国 首尔] - 该公益加速源由 [gh.catmak.name] 提供"
+    },
+    {
+      "url": "https://ghproxy.net/https://raw.githubusercontent.com",
+      "location": "日本 1",
+      "description": "[日本 大阪] - 该公益加速源由 [ghproxy.net] 提供 - 缓存：有（约 10 分钟）"
+    },
+    {
+      "url": "https://fastly.jsdelivr.net/gh",
+      "location": "日本 2",
+      "description": "[日本 东京] - 该公益加速源由 [JSDelivr CDN] 提供 - 缓存：有 - 不支持大小超过 50 MB 的文件 - 不支持版本号格式的分支名（如 v1.2.3）"
+    },
+    {
+      "url": "https://g.blfrp.cn/https://raw.githubusercontent.com",
+      "location": "日本 3",
+      "description": "[日本 东京] - 该公益加速源由 [g.blfrp.cn] 提供"
+    },
+    {
+      "url": "https://github.3x25.com/https://raw.githubusercontent.com",
+      "location": "新加坡",
+      "description": "[新加坡] - 该公益加速源由 [github.3x25.com] 提供"
+    }
+  ],
+  "note": "本文件由Mio手动更新，基于XIU2的GitHub增强脚本v2.6.27，更新时间：2025-07-08 15:15:00"
+}

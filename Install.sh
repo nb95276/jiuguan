@@ -4,6 +4,12 @@
 # 原作者：欤歡 | 优化：mio酱 for 小红书姐妹们 💕
 # =========================================================================
 
+# 设置全局非交互模式，避免用户选择困扰
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+export NEEDRESTART_MODE=a
+set -o pipefail
+
 # ==== 彩色输出定义 ====
 RED='\033[1;31m'
 GREEN='\033[1;32m'
@@ -164,10 +170,17 @@ echo -e "${GREEN}${BOLD}>> 🚀 步骤 2/8 完成：已切换为清华镜像源�
 show_progress 3 8 "正在更新系统组件，为安装做准备~"
 echo -e "\n${CYAN}${BOLD}==== 步骤 3/8：更新包管理器 ====${NC}"
 echo -e "${YELLOW}${BOLD}💕 正在更新系统，这可能需要几分钟...${NC}"
+echo -e "${CYAN}${BOLD}>> 🤖 mio会自动处理所有选择，姐妹不用操心哦~${NC}"
 
 OPENSSL_CNF="/data/data/com.termux/files/usr/etc/tls/openssl.cnf"
 [ -f "$OPENSSL_CNF" ] && rm -f "$OPENSSL_CNF"
-pkg update && pkg upgrade -y
+
+# 设置非交互模式，自动选择默认选项
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+export NEEDRESTART_MODE=a
+
+pkg update && yes | pkg upgrade
 echo -e "${GREEN}${BOLD}>> 🎉 步骤 3/8 完成：包管理器已更新。${NC}"
 
 # =========================================================================
