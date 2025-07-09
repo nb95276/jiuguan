@@ -112,28 +112,28 @@ get_latest_mirrors() {
     return 1
 }
 
-# ==== XIU2大佬2025年最新GitHub加速源（亚洲优先） ====
+# ==== XIU2大佬2025年最新GitHub加速源（实测稳定优先） ====
 GITHUB_MIRRORS=(
-    # 🌏 亚洲优质源（优先使用）
+    # 🌟 实测最稳定源（优先使用）
+    "https://ghproxy.net/https://github.com"            # 🇯🇵 日本大阪 - 最稳定
+    "https://gh.h233.eu.org/https://github.com"         # 🇺🇸 XIU2自营 - 稳定可靠
+    "https://gh.ddlc.top/https://github.com"            # 🇺🇸 美国CDN - 速度快
     "https://kkgithub.com"                              # 🇭🇰 香港、日本、新加坡
-    "https://hk.gh-proxy.com/https://github.com"        # 🇭🇰 香港专线 - gh-proxy.com
-    "https://wget.la/https://github.com"                # 🇭🇰 香港、台湾、日本 - ucdn.me
     "https://ghfast.top/https://github.com"             # 🇯🇵🇰🇷🇸🇬 日韩新等多国CDN
     "https://githubfast.com"                            # 🇰🇷 韩国 - Github Fast
-    "https://ghproxy.net/https://github.com"            # 🇯🇵 日本大阪 - ghproxy.net
     "https://gh.catmak.name/https://github.com"         # 🇰🇷 韩国首尔
     "https://github.3x25.com/https://github.com"        # 🇸🇬 新加坡
 
-    # 🌍 欧美备用源
-    "https://gh.h233.eu.org/https://github.com"         # 🇺🇸 XIU2自营 - Cloudflare CDN
-    "https://gh.ddlc.top/https://github.com"            # 🇺🇸 美国CDN - mtr-static
+    # 🌍 其他备用源
     "https://gh-proxy.com/https://github.com"           # 🇺🇸 美国CDN - gh-proxy.com
     "https://hub.gitmirror.com/https://github.com"      # 🇺🇸 美国CDN - GitMirror
     "https://cors.isteed.cc/github.com"                 # 🇺🇸 美国CDN - Lufs's
     "https://github.tbedu.top/https://github.com"       # 🇺🇸 美国CDN - tbedu
     "https://ghproxy.cfd/https://github.com"            # 🇺🇸 美国洛杉矶
 
-    # 🔄 备用源（最后使用）
+    # ⚠️ 问题源（最后使用）
+    "https://hk.gh-proxy.com/https://github.com"        # ⚠️ HTTP/2协议问题
+    "https://wget.la/https://github.com"                # ⚠️ 下载不完整问题
     "https://github.com"                                # 🌐 GitHub官方
     "https://gitclone.com"                              # 🇨🇳 中国国内 - GitClone（较慢）
 )

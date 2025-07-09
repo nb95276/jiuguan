@@ -1,20 +1,20 @@
-🌸 SillyTavern-Termux 安装命令 - XIU2大佬2025年最新源（亚洲优先）
+🌸 SillyTavern-Termux 安装命令 - XIU2大佬2025年最新源（实测稳定优先）
 
 ================================================
-🌏 亚洲优质源（推荐优先使用）
+🌟 实测最稳定源（强烈推荐）
 ================================================
 
-1. 🇭🇰 香港、日本、新加坡源（kkgithub）
+1. 🇯🇵 日本大阪源（ghproxy.net）- 最稳定
+curl -k -fsSL -o Install.sh https://ghproxy.net/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+2. 🇺🇸 XIU2自营源（gh.h233.eu.org）- 稳定可靠
+curl -k -fsSL -o Install.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+3. 🇺🇸 美国CDN源（gh.ddlc.top）- 速度快
+curl -k -fsSL -o Install.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+4. 🇭🇰 香港、日本、新加坡源（kkgithub）
 curl -k -fsSL -o Install.sh https://kkgithub.com/nb95276/jiuguan/raw/master/Install.sh && bash Install.sh
-
-2. 🇭🇰 香港专线源（gh-proxy.com）
-curl -k -fsSL -o Install.sh https://hk.gh-proxy.com/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
-
-3. 🇭🇰 香港、台湾、日本源（ucdn.me）
-curl -k -fsSL -o Install.sh https://wget.la/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
-
-4. 🇯🇵🇰🇷🇸🇬 日韩新等多国CDN源（ghfast.top）
-curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 5. 🇯🇵🇰🇷🇸🇬 日韩新等多国CDN源（ghfast.top）
 curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
@@ -69,11 +69,14 @@ curl -k -fsSL -o Install_优化版.sh https://gh.h233.eu.org/https://raw.githubu
 💡 使用建议
 ================================================
 
-🥇 优先推荐：1-5号命令（亚洲源，速度最快）
-🥈 备用选择：6-9号命令（亚洲其他源）
-🥉 最后备用：10-12号命令（欧美源）
+🥇 强烈推荐：1-4号命令（实测最稳定）
+🥈 备用选择：5-8号命令（其他稳定源）
+🥉 最后备用：9-12号命令（欧美源）
 
-⚠️ 注意：gitclone.com 速度较慢，已移至最后备用
+⚠️ 已知问题源：
+- hk.gh-proxy.com：HTTP/2协议问题
+- wget.la：下载不完整问题
+- gitclone.com：速度较慢
 
 🎀 特色功能：
 - 🤖 自动获取XIU2大佬最新加速源
