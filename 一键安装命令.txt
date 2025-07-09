@@ -1,0 +1,49 @@
+SillyTavern-Termux 小红书专版 - 11个一键安装命令（按测速排序）
+=================================================================
+
+🌟 推荐命令（最快 788ms）：
+curl -k -fsSL -o Install.sh https://gitproxy.click/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+⚡ 备用命令1（快速 1058ms）：
+curl -k -fsSL -o Install.sh https://github.tbedu.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+🔥 备用命令2（稳定 1247ms）：
+curl -k -fsSL -o Install.sh https://gh.llkk.cc/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+💎 备用命令3（经典推荐）：
+curl -k -fsSL -o Install.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+🛡️ 备用命令4：
+curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+🌐 备用命令5：
+curl -k -fsSL -o Install.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+🔗 备用命令6：
+curl -k -fsSL -o Install.sh https://ghproxy.cfd/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+🌸 备用命令7：
+curl -k -fsSL -o Install.sh https://hub.gitmirror.com/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+🎀 备用命令8：
+curl -k -fsSL -o Install.sh https://mirrors.chenby.cn/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+🌍 备用命令9（海外用户）：
+curl -k -fsSL -o Install.sh https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+⚠️ 备用命令10（最后选择）：
+curl -k -fsSL -o Install.sh https://ghproxy.net/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+
+=================================================
+使用说明：
+1. 优先使用推荐命令（gh.ddlc.top）
+2. 如果推荐命令失败，依次尝试备用命令
+3. 所有命令都已添加 -k 参数跳过SSL验证
+4. 安装完成后会自动启动菜单程序
+
+联系方式：
+- 酒馆福利互助群：877957256
+- 原作者QQ群：807134015
+- 小红书评论区留言
+
+💕 祝姐妹们使用愉快！
