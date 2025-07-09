@@ -39,20 +39,48 @@ get_latest_mirrors() {
             if [ -f "/tmp/xiu2_script.js" ] && [ $(stat -c%s "/tmp/xiu2_script.js" 2>/dev/null || echo 0) -gt 1000 ]; then
                 echo -e "${GREEN}${BOLD}>> ✅ 获取到最新加速源列表！${NC}"
 
-                # 解析raw_url数组，提取前8个可用源
+                # 先尝试解析download_url数组（用于下载），再解析raw_url数组
                 local new_mirrors=()
+
+                # 提取download_url数组
                 while IFS= read -r line; do
                     if [[ "$line" =~ \[\'([^\']+)\' ]]; then
                         local mirror="${BASH_REMATCH[1]}"
-                        if [[ "$mirror" =~ ^https:// ]] && [ ${#new_mirrors[@]} -lt 8 ]; then
+                        if [[ "$mirror" =~ ^https:// ]] && [ ${#new_mirrors[@]} -lt 6 ]; then
                             new_mirrors+=("$mirror")
                         fi
                     fi
-                done < <(sed -n '/raw_url = \[/,/\];/p' "/tmp/xiu2_script.js")
+                done < <(sed -n '/download_url = \[/,/\];/p' "/tmp/xiu2_script.js")
+
+                # 如果download_url不够，再从raw_url补充并转换
+                if [ ${#new_mirrors[@]} -lt 6 ]; then
+                    while IFS= read -r line; do
+                        if [[ "$line" =~ \[\'([^\']+)\' ]]; then
+                            local mirror="${BASH_REMATCH[1]}"
+                            if [[ "$mirror" =~ ^https:// ]] && [ ${#new_mirrors[@]} -lt 8 ]; then
+                                # 将raw.githubusercontent.com的源转换为github.com的源
+                                if [[ "$mirror" == *"raw.githubusercontent.com"* ]]; then
+                                    mirror="${mirror/raw.githubusercontent.com/github.com}"
+                                elif [[ "$mirror" == *"/https://raw.githubusercontent.com"* ]]; then
+                                    mirror="${mirror/\/https:\/\/raw.githubusercontent.com/\/https:\/\/github.com}"
+                                fi
+                                new_mirrors+=("$mirror")
+                            fi
+                        fi
+                    done < <(sed -n '/raw_url = \[/,/\];/p' "/tmp/xiu2_script.js")
+                fi
 
                 if [ ${#new_mirrors[@]} -gt 5 ]; then
                     GITHUB_MIRRORS=("${new_mirrors[@]}")
                     echo -e "${CYAN}>> 🎉 已更新到最新的 ${#GITHUB_MIRRORS[@]} 个加速源${NC}"
+                    echo -e "${GREEN}>> 📋 最新源列表预览：${NC}"
+                    for i in "${!GITHUB_MIRRORS[@]}"; do
+                        if [ $i -lt 3 ]; then
+                            local domain=$(echo "${GITHUB_MIRRORS[$i]}" | sed 's|https://||' | cut -d'/' -f1)
+                            echo -e "${YELLOW}   $((i+1)). $domain${NC}"
+                        fi
+                    done
+                    [ ${#GITHUB_MIRRORS[@]} -gt 3 ] && echo -e "${CYAN}   ... 还有 $((${#GITHUB_MIRRORS[@]} - 3)) 个源${NC}"
                     rm -f "/tmp/xiu2_script.js"
                     return 0
                 fi
