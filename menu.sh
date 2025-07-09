@@ -665,7 +665,7 @@ while true; do
     echo -e "${GREEN}${BOLD}1. 🚀 启动 SillyTavern${NC}"
     echo -e "${BLUE}${BOLD}2. 🔄 更新 SillyTavern${NC}"
     echo -e "${YELLOW}${BOLD}3. 🎀 简单配置${NC}"
-    echo -e "${MAGENTA}${BOLD}4. 🍻 免费api福利互助群：877,957,256${NC}"
+    echo -e "${MAGENTA}${BOLD}4. 🍻 免费API福利互助群：877,957,256${NC}"
     echo -e "${CYAN}${BOLD}5. 🌐 多设备使用设置${NC}"
     echo -e "${BRIGHT_BLUE}${BOLD}6. 🧩 安装强化插件${NC}"
     echo -e "${BRIGHT_MAGENTA}${BOLD}7. 🔄 更新管理脚本${NC}"

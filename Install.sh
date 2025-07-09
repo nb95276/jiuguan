@@ -496,7 +496,7 @@ echo -e "${YELLOW}${BOLD}💡 为了以后更新更顺畅，让我们测试一�
 test_mirrors_speed
 
 # =========================================================================
-# 安装完成，进入主菜单
+# 安装完成，自动启动SillyTavern
 # =========================================================================
 echo -e "\n${GREEN}${BOLD}"
 echo "🎉🎉🎉 恭喜姐妹！安装完成啦！🎉🎉🎉"
@@ -506,6 +506,59 @@ echo "🌸 感谢使用小红书专版安装脚本"
 echo "=================================================="
 echo -e "${NC}"
 
-echo -e "${CYAN}${BOLD}>> 🎀 按任意键进入主菜单开始使用...${NC}"
-read -n1 -s
-exec bash "$HOME/menu.sh"
+echo -e "\n${BRIGHT_MAGENTA}${BOLD}🍻 加入我们的福利互助群！🍻${NC}"
+echo -e "${YELLOW}${BOLD}💕 免费API福利互助群：877,957,256${NC}"
+echo -e "${CYAN}${BOLD}• 🎀 SillyTavern使用技巧分享${NC}"
+echo -e "${CYAN}${BOLD}• 💝 优质角色卡资源${NC}"
+echo -e "${CYAN}${BOLD}• 🌸 姐妹们的聊天心得${NC}"
+echo -e "${CYAN}${BOLD}• 🆘 遇到问题互相帮助${NC}"
+echo ""
+
+echo -e "${CYAN}${BOLD}>> 🚀 正在自动启动SillyTavern...${NC}"
+echo -e "${YELLOW}${BOLD}>> 💡 启动后会自动打开浏览器，请稍等...${NC}"
+echo -e "${GREEN}${BOLD}>> 🌐 访问地址：http://127.0.0.1:8000${NC}"
+echo ""
+
+# 进入SillyTavern目录并启动
+cd "$HOME/SillyTavern" || {
+    echo -e "${RED}${BOLD}>> 💔 进入 SillyTavern 目录失败！${NC}"
+    echo -e "${CYAN}${BOLD}>> 🎀 按任意键进入菜单手动启动...${NC}"
+    read -n1 -s
+    exec bash "$HOME/menu.sh"
+    exit 1
+}
+
+# 后台启动SillyTavern
+echo -e "${CYAN}${BOLD}>> 🎯 正在启动服务器...${NC}"
+nohup node server.js > /dev/null 2>&1 &
+SERVER_PID=$!
+
+# 等待服务器启动
+echo -e "${YELLOW}${BOLD}>> ⏰ 等待服务器启动（最多30秒）...${NC}"
+for i in {1..30}; do
+    if curl -s http://127.0.0.1:8000 > /dev/null 2>&1; then
+        echo -e "${GREEN}${BOLD}>> ✅ 服务器启动成功！${NC}"
+        break
+    fi
+    sleep 1
+    if [ $i -eq 30 ]; then
+        echo -e "${YELLOW}${BOLD}>> ⚠️ 服务器启动超时，但可能仍在启动中...${NC}"
+    fi
+done
+
+# 尝试打开浏览器
+echo -e "${CYAN}${BOLD}>> 🌐 正在打开浏览器...${NC}"
+if command -v termux-open-url >/dev/null 2>&1; then
+    termux-open-url "http://127.0.0.1:8000"
+    echo -e "${GREEN}${BOLD}>> ✅ 浏览器已打开！${NC}"
+else
+    echo -e "${YELLOW}${BOLD}>> ⚠️ 无法自动打开浏览器${NC}"
+    echo -e "${CYAN}${BOLD}>> 💡 请手动在浏览器中访问：http://127.0.0.1:8000${NC}"
+fi
+
+echo ""
+echo -e "${GREEN}${BOLD}🎉 SillyTavern 已启动完成！${NC}"
+echo -e "${CYAN}${BOLD}💕 如需管理服务器，请运行：bash ~/menu.sh${NC}"
+echo -e "${YELLOW}${BOLD}🍻 记得加群哦：877,957,256${NC}"
+echo ""
+echo -e "${BRIGHT_MAGENTA}${BOLD}>> 🌸 享受和AI的愉快聊天时光吧~${NC}"
