@@ -272,13 +272,15 @@ else
     for mirror in "${GITHUB_MIRRORS[@]}"; do
         local domain=$(echo "$mirror" | sed 's|https://||' | cut -d'/' -f1)
         echo -e "${YELLOW}${BOLD}>> 🔄 尝试从 $domain 克隆...${NC}"
-        
-        if timeout 300 git clone "$mirror/SillyTavern/SillyTavern" "$HOME/SillyTavern" 2>/dev/null; then
+        echo -e "${CYAN}>> ⏳ 预计需要30-60秒，请耐心等待...${NC}"
+
+        if timeout 60 git clone --depth=1 --single-branch --branch=release \
+            "$mirror/SillyTavern/SillyTavern" "$HOME/SillyTavern" 2>/dev/null; then
             echo -e "${GREEN}${BOLD}>> ✅ 克隆成功！来源: $domain${NC}"
             clone_success=true
             break
         else
-            echo -e "${YELLOW}${BOLD}>> ❌ 克隆失败，尝试下一个源...${NC}"
+            echo -e "${YELLOW}${BOLD}>> ❌ 克隆失败（60秒超时），尝试下一个源...${NC}"
             rm -rf "$HOME/SillyTavern"
         fi
     done
@@ -376,7 +378,7 @@ echo -e "${GREEN}${BOLD}>> 🎉 步骤 8/8 完成：SillyTavern 依赖已安装�
 echo -e "\n${GREEN}${BOLD}"
 echo "🎉🎉🎉 恭喜姐妹！安装完成啦！🎉🎉🎉"
 echo "✨ SillyTavern 已经成功安装到你的手机上"
-echo "💕 现在可以和AI男友愉快聊天啦~"
+echo "💕 现在可以和你的AI男朋友愉快聊天啦~"
 echo "🌸 感谢使用小红书专版安装脚本"
 echo "=================================================="
 echo -e "${NC}"
@@ -427,4 +429,4 @@ echo -e "${GREEN}${BOLD}🎉 SillyTavern 已启动完成！${NC}"
 echo -e "${CYAN}${BOLD}💕 如需管理服务器，请运行：bash ~/menu.sh${NC}"
 echo -e "${YELLOW}${BOLD}🍻 记得加群哦：877,957,256${NC}"
 echo ""
-echo -e "${BRIGHT_MAGENTA}${BOLD}>> 🌸 享受和AI的愉快聊天时光吧~${NC}"
+echo -e "${BRIGHT_MAGENTA}${BOLD}>> 🌸 享受和你的AI男朋友的愉快聊天时光吧~${NC}"

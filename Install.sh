@@ -199,6 +199,7 @@ echo -e "${CYAN}${BOLD}"
 echo "=================================================="
 echo "🌸 SillyTavern-Termux 小红书专版安装脚本 🌸"
 echo "💕 专为小红书姐妹们优化，零基础也能轻松安装"
+echo "💖 快来和你的AI男朋友聊天吧~"
 echo "✨ 去除了容易卡住的字体下载，使用多源加速"
 echo "=================================================="
 echo -e "${NC}"
@@ -318,9 +319,10 @@ else
     for mirror in "${GITHUB_MIRRORS[@]}"; do
         domain=$(echo "$mirror" | sed 's|https://||' | cut -d'/' -f1)
         echo -e "${YELLOW}${BOLD}>> 🔄 尝试从 $domain 克隆...${NC}"
+        echo -e "${CYAN}>> ⏳ 预计需要30-60秒，请耐心等待...${NC}"
 
         # 优化git clone参数：浅克隆+单分支+压缩
-        if timeout 120 git clone --depth=1 --single-branch --branch=release \
+        if timeout 60 git clone --depth=1 --single-branch --branch=release \
             --config http.postBuffer=1048576000 \
             --config http.maxRequestBuffer=100M \
             --config core.preloadindex=true \
@@ -331,7 +333,7 @@ else
             clone_success=true
             break
         else
-            echo -e "${YELLOW}${BOLD}>> ❌ 克隆失败，尝试下一个源...${NC}"
+            echo -e "${YELLOW}${BOLD}>> ❌ 克隆失败（60秒超时），尝试下一个源...${NC}"
             rm -rf "$HOME/SillyTavern"
         fi
     done
@@ -540,7 +542,7 @@ test_mirrors_speed
 echo -e "\n${GREEN}${BOLD}"
 echo "🎉🎉🎉 恭喜姐妹！安装完成啦！🎉🎉🎉"
 echo "✨ SillyTavern 已经成功安装到你的手机上"
-echo "💕 现在可以和AI男友愉快聊天啦~"
+echo "💕 现在可以和你的AI男朋友愉快聊天啦~"
 echo "🌸 感谢使用小红书专版安装脚本"
 echo "=================================================="
 echo -e "${NC}"
