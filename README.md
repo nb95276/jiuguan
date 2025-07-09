@@ -27,37 +27,37 @@
 
 ```bash
 # 🌟 方法1：gitproxy.click（最快 788ms）
-curl -k -fsSL -o Install.sh https://gitproxy.click/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://gitproxy.click/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # ⚡ 方法2：github.tbedu.top（快速 1058ms）
-curl -k -fsSL -o Install.sh https://github.tbedu.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://github.tbedu.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 🔥 方法3：gh.llkk.cc（稳定 1247ms）
-curl -k -fsSL -o Install.sh https://gh.llkk.cc/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://gh.llkk.cc/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 💎 方法4：gh.ddlc.top（经典推荐）
-curl -k -fsSL -o Install.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 🛡️ 方法5：ghfast.top
-curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 🌐 方法6：gh.h233.eu.org
-curl -k -fsSL -o Install.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 🔗 方法7：ghproxy.cfd
-curl -k -fsSL -o Install.sh https://ghproxy.cfd/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://ghproxy.cfd/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 🌸 方法8：hub.gitmirror.com
-curl -k -fsSL -o Install.sh https://hub.gitmirror.com/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://hub.gitmirror.com/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 🎀 方法9：mirrors.chenby.cn
-curl -k -fsSL -o Install.sh https://mirrors.chenby.cn/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://mirrors.chenby.cn/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 🌍 方法10：原始GitHub（海外用户）
-curl -k -fsSL -o Install.sh https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # ⚠️ 方法11：ghproxy.net（最后选择）
-curl -k -fsSL -o Install.sh https://ghproxy.net/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+curl -k -fsSL -o Install.sh https://ghproxy.net/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 ```
 
 > 💡 **使用建议**：从方法1开始尝试，如果失败就试下一个！
@@ -66,16 +66,16 @@ curl -k -fsSL -o Install.sh https://ghproxy.net/https://raw.githubusercontent.co
 
 ```bash
 # 🌟 方法1：gh.ddlc.top（稳定版主力推荐）
-curl -k -fsSL -o Install.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/v1.0-stable/Install.sh && bash Install.sh
+curl -k -fsSL -o Install_优化版.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install_优化版.sh && bash Install_优化版.sh
 
 # ⚡ 方法2：ghfast.top
-curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/v1.0-stable/Install.sh && bash Install.sh
+curl -k -fsSL -o Install_优化版.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install_优化版.sh && bash Install_优化版.sh
 
 # 🛡️ 方法3：gh.h233.eu.org
-curl -k -fsSL -o Install.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/v1.0-stable/Install.sh && bash Install.sh
+curl -k -fsSL -o Install_优化版.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install_优化版.sh && bash Install_优化版.sh
 
 # 🌍 方法4：原始GitHub（海外用户）
-curl -k -fsSL -o Install.sh https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/v1.0-stable/Install.sh && bash Install.sh
+curl -k -fsSL -o Install_优化版.sh https://raw.githubusercontent.com/nb95276/jiuguan/master/Install_优化版.sh && bash Install_优化版.sh
 ```
 
 > ⚠️ **何时使用v1.0**：如果v2.0版本遇到问题，可以使用v1.0稳定版
@@ -88,7 +88,7 @@ curl -k -fsSL -o Install.sh https://raw.githubusercontent.com/nb95276/SillyTaver
 ### 🛠️ **GitHub连接解决方案**
 ```bash
 # 方法1：使用wget替代curl
-wget --no-check-certificate -O Install.sh https://gitproxy.click/https://raw.githubusercontent.com/nb95276/SillyTavern-Termux/main/Install.sh && bash Install.sh
+wget --no-check-certificate -O Install.sh https://gitproxy.click/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
 
 # 方法2：检查DNS设置
 echo "nameserver 8.8.8.8" > $PREFIX/etc/resolv.conf
