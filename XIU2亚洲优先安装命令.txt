@@ -1,0 +1,83 @@
+🌸 SillyTavern-Termux 安装命令 - XIU2大佬2025年最新源（亚洲优先）
+
+================================================
+🌏 亚洲优质源（推荐优先使用）
+================================================
+
+1. 🇨🇳 中国国内源（GitClone）
+curl -k -fsSL -o Install.sh https://gitclone.com/nb95276/jiuguan/raw/master/Install.sh && bash Install.sh
+
+2. 🇭🇰 香港、日本、新加坡源（kkgithub）
+curl -k -fsSL -o Install.sh https://kkgithub.com/nb95276/jiuguan/raw/master/Install.sh && bash Install.sh
+
+3. 🇭🇰 香港专线源（gh-proxy.com）
+curl -k -fsSL -o Install.sh https://hk.gh-proxy.com/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+4. 🇭🇰 香港、台湾、日本源（ucdn.me）
+curl -k -fsSL -o Install.sh https://wget.la/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+5. 🇯🇵🇰🇷🇸🇬 日韩新等多国CDN源（ghfast.top）
+curl -k -fsSL -o Install.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+6. 🇰🇷 韩国源（Github Fast）
+curl -k -fsSL -o Install.sh https://githubfast.com/nb95276/jiuguan/raw/master/Install.sh && bash Install.sh
+
+7. 🇯🇵 日本大阪源（ghproxy.net）
+curl -k -fsSL -o Install.sh https://ghproxy.net/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+8. 🇰🇷 韩国首尔源（gh.catmak.name）
+curl -k -fsSL -o Install.sh https://gh.catmak.name/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+9. 🇸🇬 新加坡源（github.3x25.com）
+curl -k -fsSL -o Install.sh https://github.3x25.com/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+================================================
+🌍 欧美备用源（如果亚洲源都失败再用）
+================================================
+
+10. 🇺🇸 XIU2自营源（gh.h233.eu.org）
+curl -k -fsSL -o Install.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+11. 🇺🇸 美国CDN源（gh.ddlc.top）
+curl -k -fsSL -o Install.sh https://gh.ddlc.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+12. 🇺🇸 美国CDN源（gh-proxy.com）
+curl -k -fsSL -o Install.sh https://gh-proxy.com/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install.sh && bash Install.sh
+
+================================================
+🎯 优化版安装命令（更简洁）
+================================================
+
+🌏 亚洲优先 - 优化版：
+
+1. 🇨🇳 中国国内源
+curl -k -fsSL -o Install_优化版.sh https://gitclone.com/nb95276/jiuguan/raw/master/Install_优化版.sh && bash Install_优化版.sh
+
+2. 🇭🇰 香港源
+curl -k -fsSL -o Install_优化版.sh https://kkgithub.com/nb95276/jiuguan/raw/master/Install_优化版.sh && bash Install_优化版.sh
+
+3. 🇯🇵🇰🇷🇸🇬 多国CDN源
+curl -k -fsSL -o Install_优化版.sh https://ghfast.top/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install_优化版.sh && bash Install_优化版.sh
+
+4. 🇯🇵 日本源
+curl -k -fsSL -o Install_优化版.sh https://ghproxy.net/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install_优化版.sh && bash Install_优化版.sh
+
+5. 🇺🇸 XIU2自营源
+curl -k -fsSL -o Install_优化版.sh https://gh.h233.eu.org/https://raw.githubusercontent.com/nb95276/jiuguan/master/Install_优化版.sh && bash Install_优化版.sh
+
+================================================
+💡 使用建议
+================================================
+
+🥇 优先推荐：1-5号命令（亚洲源，速度最快）
+🥈 备用选择：6-9号命令（亚洲其他源）
+🥉 最后备用：10-12号命令（欧美源）
+
+🎀 特色功能：
+- 🤖 自动获取XIU2大佬最新加速源
+- 🚀 安装完成自动启动SillyTavern
+- 🌐 自动打开浏览器
+- 🍻 群宣传：877,957,256
+- 💝 一键到位，立即可用
+
+🌸 小红书姐妹们的专属AI聊天室，快来体验吧~

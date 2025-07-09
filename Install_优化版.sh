@@ -93,16 +93,28 @@ get_latest_mirrors() {
     return 1
 }
 
-# ==== GitHub加速源列表（备用静态列表） ====
+# ==== XIU2大佬2025年最新GitHub加速源（亚洲优先） ====
 GITHUB_MIRRORS=(
-    "https://ghproxy.net/https://github.com"
-    "https://gh.ddlc.top/https://github.com"
-    "https://ghfast.top/https://github.com"
-    "https://gh.h233.eu.org/https://github.com"
-    "https://ghproxy.cfd/https://github.com"
-    "https://hub.gitmirror.com/https://github.com"
-    "https://mirrors.chenby.cn/https://github.com"
-    "https://github.com"
+    # 🌏 亚洲优质源（优先使用）
+    "https://gitclone.com"                              # 🇨🇳 中国国内 - GitClone
+    "https://kkgithub.com"                              # 🇭🇰 香港、日本、新加坡
+    "https://hk.gh-proxy.com/https://github.com"        # 🇭🇰 香港专线 - gh-proxy.com
+    "https://wget.la/https://github.com"                # 🇭🇰 香港、台湾、日本 - ucdn.me
+    "https://ghfast.top/https://github.com"             # 🇯🇵🇰🇷🇸🇬 日韩新等多国CDN
+    "https://githubfast.com"                            # 🇰🇷 韩国 - Github Fast
+    "https://ghproxy.net/https://github.com"            # 🇯🇵 日本大阪 - ghproxy.net
+    "https://gh.catmak.name/https://github.com"         # 🇰🇷 韩国首尔
+
+    # 🌍 欧美备用源
+    "https://gh.h233.eu.org/https://github.com"         # 🇺🇸 XIU2自营 - Cloudflare CDN
+    "https://gh.ddlc.top/https://github.com"            # 🇺🇸 美国CDN - mtr-static
+    "https://gh-proxy.com/https://github.com"           # 🇺🇸 美国CDN - gh-proxy.com
+    "https://hub.gitmirror.com/https://github.com"      # 🇺🇸 美国CDN - GitMirror
+    "https://cors.isteed.cc/github.com"                 # 🇺🇸 美国CDN - Lufs's
+    "https://github.tbedu.top/https://github.com"       # 🇺🇸 美国CDN - tbedu
+
+    # 🔄 原版GitHub（最后备用）
+    "https://github.com"                                # 🌐 GitHub官方
 )
 
 # 尝试获取最新加速源
