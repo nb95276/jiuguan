@@ -115,7 +115,6 @@ get_latest_mirrors() {
 # ==== XIU2大佬2025年最新GitHub加速源（亚洲优先） ====
 GITHUB_MIRRORS=(
     # 🌏 亚洲优质源（优先使用）
-    "https://gitclone.com"                              # 🇨🇳 中国国内 - GitClone
     "https://kkgithub.com"                              # 🇭🇰 香港、日本、新加坡
     "https://hk.gh-proxy.com/https://github.com"        # 🇭🇰 香港专线 - gh-proxy.com
     "https://wget.la/https://github.com"                # 🇭🇰 香港、台湾、日本 - ucdn.me
@@ -134,8 +133,9 @@ GITHUB_MIRRORS=(
     "https://github.tbedu.top/https://github.com"       # 🇺🇸 美国CDN - tbedu
     "https://ghproxy.cfd/https://github.com"            # 🇺🇸 美国洛杉矶
 
-    # 🔄 原版GitHub（最后备用）
+    # 🔄 备用源（最后使用）
     "https://github.com"                                # 🌐 GitHub官方
+    "https://gitclone.com"                              # 🇨🇳 中国国内 - GitClone（较慢）
 )
 
 # 尝试获取最新加速源
@@ -424,42 +424,12 @@ if [ ! -f "$MENU_PATH" ]; then
         fi
     done
 
-    # 如果下载失败，创建简化版菜单
+    # 如果下载失败，报错并退出
     if [ "$download_success" = false ]; then
-        echo -e "${YELLOW}${BOLD}>> ⚠️ 下载失败，创建简化版菜单...${NC}"
-        cat > "$MENU_PATH" << 'EOF'
-#!/data/data/com.termux/files/usr/bin/bash
-# SillyTavern-Termux 简化菜单
-
-GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
-CYAN='\033[1;36m'
-NC='\033[0m'
-
-echo -e "${CYAN}🌸 SillyTavern-Termux 小红书专版 🌸${NC}"
-echo -e "${YELLOW}💕 欢迎使用简化版菜单${NC}"
-echo ""
-echo "1. 启动 SillyTavern"
-echo "2. 退出"
-echo ""
-read -p "请选择 (1-2): " choice
-
-case $choice in
-    1)
-        echo -e "${GREEN}>> 🚀 启动 SillyTavern...${NC}"
-        cd "$HOME/SillyTavern" && node server.js
-        ;;
-    2)
-        echo -e "${YELLOW}>> 👋 再见！${NC}"
-        exit 0
-        ;;
-    *)
-        echo -e "${YELLOW}>> ⚠️ 无效选择${NC}"
-        ;;
-esac
-EOF
-        chmod +x "$MENU_PATH"
-        echo -e "${GREEN}${BOLD}>> ✅ 简化版菜单创建成功${NC}"
+        echo -e "${RED}${BOLD}>> ❌ 菜单下载失败，请检查网络连接${NC}"
+        echo -e "${YELLOW}${BOLD}>> 💡 你可以稍后手动下载菜单：${NC}"
+        echo -e "${CYAN}curl -k -fsSL -o ~/menu.sh https://kkgithub.com/nb95276/jiuguan/raw/master/menu.sh && chmod +x ~/menu.sh${NC}"
+        exit 1
     fi
 else
     echo -e "${YELLOW}${BOLD}>> ✅ menu.sh 已存在，跳过创建。${NC}"

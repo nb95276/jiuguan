@@ -96,7 +96,6 @@ get_latest_mirrors() {
 # ==== XIU2大佬2025年最新GitHub加速源（亚洲优先） ====
 GITHUB_MIRRORS=(
     # 🌏 亚洲优质源（优先使用）
-    "https://gitclone.com"                              # 🇨🇳 中国国内 - GitClone
     "https://kkgithub.com"                              # 🇭🇰 香港、日本、新加坡
     "https://hk.gh-proxy.com/https://github.com"        # 🇭🇰 香港专线 - gh-proxy.com
     "https://wget.la/https://github.com"                # 🇭🇰 香港、台湾、日本 - ucdn.me
@@ -104,6 +103,7 @@ GITHUB_MIRRORS=(
     "https://githubfast.com"                            # 🇰🇷 韩国 - Github Fast
     "https://ghproxy.net/https://github.com"            # 🇯🇵 日本大阪 - ghproxy.net
     "https://gh.catmak.name/https://github.com"         # 🇰🇷 韩国首尔
+    "https://github.3x25.com/https://github.com"        # 🇸🇬 新加坡
 
     # 🌍 欧美备用源
     "https://gh.h233.eu.org/https://github.com"         # 🇺🇸 XIU2自营 - Cloudflare CDN
@@ -113,8 +113,9 @@ GITHUB_MIRRORS=(
     "https://cors.isteed.cc/github.com"                 # 🇺🇸 美国CDN - Lufs's
     "https://github.tbedu.top/https://github.com"       # 🇺🇸 美国CDN - tbedu
 
-    # 🔄 原版GitHub（最后备用）
+    # 🔄 备用源（最后使用）
     "https://github.com"                                # 🌐 GitHub官方
+    "https://gitclone.com"                              # 🇨🇳 中国国内 - GitClone（较慢）
 )
 
 # 尝试获取最新加速源
