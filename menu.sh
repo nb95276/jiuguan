@@ -614,7 +614,10 @@ update_script() {
 
     # 替换脚本
     mv "$HOME/menu.sh.new" "$HOME/menu.sh"
-    chmod +x "$HOME/menu.sh"
+    # Windows环境下不需要chmod
+    if command -v chmod >/dev/null 2>&1; then
+        chmod +x "$HOME/menu.sh"
+    fi
 
     echo -e "${GREEN}${BOLD}>> ✅ 脚本更新成功！${NC}"
     echo -e "${CYAN}${BOLD}>> 🔄 正在重启菜单...${NC}"
@@ -655,11 +658,11 @@ show_update_log() {
 # =========================================================================
 while true; do
     clear
-    echo -e "${CYAN}${BOLD}"
-    echo "🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸"
+    echo -e "${MAGENTA}${BOLD}"
+    echo "🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸"
     echo "🌸        SillyTavern 小红书专版        🌸"
     echo "🌸      💕 专为姐妹们优化设计 💕       🌸"
-    echo "🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸"
+    echo "🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸"
     echo -e "${NC}"
     echo -e "${RED}${BOLD}0. 👋 退出程序${NC}"
     echo -e "${GREEN}${BOLD}1. 🚀 启动 SillyTavern${NC}"
