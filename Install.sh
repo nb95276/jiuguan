@@ -38,7 +38,7 @@ show_progress() {
 }
 
 # ==== 版本号 ====
-INSTALL_VERSION=20250701
+INSTALL_VERSION=20250710_v2
 
 # ==== 动态获取最新GitHub加速源 ====
 get_latest_mirrors() {
