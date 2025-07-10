@@ -404,32 +404,84 @@ fi
 if [ ! -f "$MENU_PATH" ]; then
     echo -e "${YELLOW}${BOLD}>> 📝 尝试下载菜单脚本...${NC}"
 
-    # 尝试下载
+    # 尝试下载（增加重试机制）
     download_success=false
     for mirror in "${GITHUB_MIRRORS[@]}"; do
         domain=$(echo "$mirror" | sed 's|https://||' | cut -d'/' -f1)
         echo -e "${YELLOW}${BOLD}>> 尝试源: $domain${NC}"
 
-        if timeout 15 curl -k -fsSL --connect-timeout 8 --max-time 15 \
-            -o "$MENU_PATH" "$mirror/nb95276/jiuguan/raw/main/menu.sh" 2>/dev/null; then
+        # 对每个源重试3次
+        for retry in {1..3}; do
+            echo -e "${CYAN}${BOLD}>> 第 $retry 次尝试...${NC}"
 
-            if [ -f "$MENU_PATH" ] && [ $(stat -c%s "$MENU_PATH" 2>/dev/null || echo 0) -gt 100 ]; then
-                echo -e "${GREEN}${BOLD}>> ✅ 菜单脚本下载成功！来源: $domain${NC}"
-                chmod +x "$MENU_PATH"
-                download_success=true
-                break
-            else
-                rm -f "$MENU_PATH"
+            if timeout 15 curl -k -fsSL --connect-timeout 8 --max-time 15 \
+                -o "$MENU_PATH" "$mirror/nb95276/jiuguan/raw/main/menu.sh" 2>/dev/null; then
+
+                if [ -f "$MENU_PATH" ] && [ $(stat -c%s "$MENU_PATH" 2>/dev/null || echo 0) -gt 100 ]; then
+                    echo -e "${GREEN}${BOLD}>> ✅ 菜单脚本下载成功！来源: $domain (第 $retry 次尝试)${NC}"
+                    chmod +x "$MENU_PATH"
+                    download_success=true
+                    break 2  # 跳出两层循环
+                else
+                    rm -f "$MENU_PATH"
+                fi
             fi
+
+            # 如果不是最后一次重试，等待1秒再试
+            if [ $retry -lt 3 ]; then
+                echo -e "${YELLOW}${BOLD}>> 等待1秒后重试...${NC}"
+                sleep 1
+            fi
+        done
+
+        # 如果这个源的3次重试都失败，尝试下一个源
+        if [ "$download_success" = true ]; then
+            break
+        else
+            echo -e "${YELLOW}${BOLD}>> ❌ $domain 重试3次均失败，尝试下一个源...${NC}"
         fi
     done
 
-    # 如果下载失败，报错并退出
+    # 如果所有源都失败，创建简化菜单而不是退出
     if [ "$download_success" = false ]; then
-        echo -e "${RED}${BOLD}>> ❌ 菜单下载失败，请检查网络连接${NC}"
-        echo -e "${YELLOW}${BOLD}>> 💡 你可以稍后手动下载菜单：${NC}"
-        echo -e "${CYAN}curl -k -fsSL -o ~/menu.sh https://kkgithub.com/nb95276/jiuguan/raw/master/menu.sh && chmod +x ~/menu.sh${NC}"
-        exit 1
+        echo -e "${YELLOW}${BOLD}>> ⚠️ 菜单下载失败，创建简化版菜单...${NC}"
+        cat > "$MENU_PATH" << 'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+# 简化版菜单脚本
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[1;36m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+while true; do
+    clear
+    echo -e "${CYAN}${BOLD}🌸 SillyTavern 简化菜单 🌸${NC}"
+    echo -e "${YELLOW}${BOLD}0. 👋 退出程序${NC}"
+    echo -e "${GREEN}${BOLD}1. 🚀 启动 SillyTavern${NC}"
+    echo -e "${CYAN}${BOLD}=================================${NC}"
+    echo -ne "${CYAN}${BOLD}💕 请选择操作（0-1）：${NC}"
+    read -n1 choice; echo
+
+    case "$choice" in
+        0) echo -e "${RED}${BOLD}>> 👋 再见啦~${NC}"; exit 0 ;;
+        1)
+            if [ -d "$HOME/SillyTavern" ]; then
+                cd "$HOME/SillyTavern"
+                echo -e "${GREEN}${BOLD}>> 🚀 正在启动 SillyTavern...${NC}"
+                npm start
+            else
+                echo -e "${RED}${BOLD}>> 😿 未找到 SillyTavern 目录${NC}"
+                sleep 2
+            fi
+            ;;
+        *) echo -e "${RED}${BOLD}>> 😅 输入错误，请重新选择${NC}"; sleep 1 ;;
+    esac
+done
+EOF
+        chmod +x "$MENU_PATH"
+        echo -e "${GREEN}${BOLD}>> ✅ 简化版菜单创建成功${NC}"
     fi
 else
     echo -e "${YELLOW}${BOLD}>> ✅ menu.sh 已存在，跳过创建。${NC}"
