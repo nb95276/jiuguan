@@ -443,9 +443,38 @@ if [ ! -f "$MENU_PATH" ]; then
         fi
     done
 
-    # 如果所有源都失败，创建简化菜单而不是退出
+    # 如果所有源都失败，尝试直接从GitHub官方下载
     if [ "$download_success" = false ]; then
-        echo -e "${YELLOW}${BOLD}>> ⚠️ 菜单下载失败，创建简化版菜单...${NC}"
+        echo -e "${YELLOW}${BOLD}>> ⚠️ 加速源失败，尝试直接从GitHub官方下载...${NC}"
+
+        # 尝试直接从GitHub官方下载（不使用加速源）
+        for retry in {1..3}; do
+            echo -e "${CYAN}${BOLD}>> 直接下载第 $retry 次尝试...${NC}"
+
+            if timeout 20 curl -k -fsSL --connect-timeout 10 --max-time 20 \
+                -o "$MENU_PATH" "https://github.com/nb95276/jiuguan/raw/main/menu.sh" 2>/dev/null; then
+
+                if [ -f "$MENU_PATH" ] && [ $(stat -c%s "$MENU_PATH" 2>/dev/null || echo 0) -gt 100 ]; then
+                    echo -e "${GREEN}${BOLD}>> ✅ 菜单脚本下载成功！来源: GitHub官方 (第 $retry 次尝试)${NC}"
+                    chmod +x "$MENU_PATH"
+                    download_success=true
+                    break
+                else
+                    rm -f "$MENU_PATH"
+                fi
+            fi
+
+            # 如果不是最后一次重试，等待2秒再试
+            if [ $retry -lt 3 ]; then
+                echo -e "${YELLOW}${BOLD}>> 等待2秒后重试...${NC}"
+                sleep 2
+            fi
+        done
+    fi
+
+    # 如果GitHub官方也失败，创建简化菜单
+    if [ "$download_success" = false ]; then
+        echo -e "${YELLOW}${BOLD}>> ⚠️ 所有下载方式都失败，创建简化版菜单...${NC}"
         cat > "$MENU_PATH" << 'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
 # 简化版菜单脚本
